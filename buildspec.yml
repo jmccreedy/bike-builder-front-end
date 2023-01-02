@@ -2,6 +2,8 @@ version: 0.2
 env:
   variables:
     APP_NAME: "bike-builder-front-end"
+    BRANCH: "main"
+    ENVIRONMENT: "prod"
 phases:
   install:
     runtime-versions:
