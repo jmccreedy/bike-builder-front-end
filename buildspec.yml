@@ -6,7 +6,7 @@ env:
 phases:
   install:
     runtime-versions:
-      nodejs: 14.x
+      nodejs: 16.13
     commands:
       - echo install process started
       - if [ -z "${BRANCH}" ]; then echo "BRANCH not set" && exit 1 ; fi
@@ -15,7 +15,7 @@ phases:
     commands:
       - echo build process started now
       - git checkout $BRANCH
-      - ng build --configuration=production
+      - ng build
   post_build:
     commands:
       - echo build process finished, we should upload to S3 now
