@@ -29,13 +29,15 @@
       <th scope="col">Frame ID</th>
       <th scope="col">Frame Title</th>
       <th scope="col">Frame Price</th>
+      <th scope="col">Part Type</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let frame of framesList">
-      <th scope="row">{{frame["part_ID"]["S"]}}</th>
+      <th scope="row">{{frame["id"]["S"]}}</th>
       <td>{{frame["frame_title"]["S"]}}</td>
       <td>€{{frame["frame_price"]["S"]}}</td>
+      <td>{{frame["part_type"]["S"]}}</td>
     </tr>
     </tbody>
   </table>

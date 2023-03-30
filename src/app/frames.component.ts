@@ -23,8 +23,8 @@ export class FramesComponent {
     this.webService.getFrameInfo()
       .subscribe((frames_list: any) => this.framesList = frames_list.Items);
 
+
     this.cognitoService.getUser().then((user: any)=> {
-      console.log('user is: ', user)
       this.user = user
     })
 
