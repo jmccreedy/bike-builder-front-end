@@ -21,4 +21,4 @@ phases:
       - echo build process finished, we should upload to S3 now
       - cd dist/$APP_NAME
       - ls -la
-      - aws s3 sync . s3://bikebuildercdkstack-webscraperbikebuilderfrontend-aeenfsqdwp8m/$ENVIRONMENT --delete
+      - aws s3 sync . s3://bikebuildercdkstack-webscraperbikebuilderfrontend-1gaetn9bt0pyc/$ENVIRONMENT --delete
