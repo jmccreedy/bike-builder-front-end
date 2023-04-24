@@ -1,21 +1,33 @@
-<div class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: rebeccapurple">
-  <span class="navbar-brand">
+<div class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+  <span class="navbar-brand" (click)="goHome()">
     Bike Builder
   </span>
   <div id="navbarContent" class="collapse navbar-collapse">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signUp" routerLinkActive="active" *ngIf="!isAuthenticated">Sign up</a>
+        <a class="nav-link" (click)="goHome()">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signIn" routerLinkActive="active" *ngIf="!isAuthenticated">Sign in</a>
+        <a class="nav-link" (click)="goToPartPicker()">Part Picker</a>
       </li>
+      <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+        <a class="nav-link" (click)="goToSavedBuilds()">
+          Saved Builds
+        </a>
+      </ng-container>
+      <ng-template #loggedOut>
+      </ng-template>
+      <ng-container *ngIf="isAdmin(userEmail); else nonAdmin">
+        <a class="nav-link" (click)="goToAdminPartsList()">
+          Edit Parts List
+        </a>
+      </ng-container>
+      <ng-template #nonAdmin>
+      </ng-template>
       <li class="nav-item">
-        <a class="nav-link" routerLink="" (click)="signOut()" *ngIf="isAuthenticated">Sign out</a>
+        <app-login-button></app-login-button>
       </li>
     </ul>
   </div>
 </div>
-<div class="container" *ngIf="isAuthenticated">
-  <h4>Signed in with email: {{user['attributes']['email']}}</h4>
-</div>
+

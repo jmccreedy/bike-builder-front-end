@@ -1,8 +1,10 @@
-/*
- * Header
- */
-.masthead {
-  margin-bottom: 2rem;
+html,
+body {
+  height: 100%;
+}
+
+.cover-container {
+  max-width: 42em;
 }
 
 .masthead-brand {
@@ -37,5 +39,32 @@
   }
   .nav-masthead {
     float: right;
+  }
+}
+
+.cover {
+  padding: 0 0 0;
+  text-align: center;
+  color: #fff;
+  background-image: url('https://getbootstrap.com/docs/4.0/examples/cover/cover.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+
+@media (min-width: 48em) {
+  .cover .masthead {
+    float: left;
+  }
+  .cover .cover-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
   }
 }

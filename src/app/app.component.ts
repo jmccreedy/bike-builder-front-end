@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { CognitoService } from './cognito.service';
 import {WebService} from "./web.service";
 
 @Component({
@@ -14,22 +13,14 @@ export class AppComponent implements OnInit {
   isAuthenticated: boolean;
 
   constructor(public webService: WebService, private router: Router,
-              private cognitoService: CognitoService) {
+              ) {
     this.isAuthenticated = false;
   }
 
   public ngOnInit(): void {
-    this.cognitoService.isAuthenticated()
-      .then((success: boolean) => {
-        this.isAuthenticated = success;
-      });
   }
 
   public signOut(): void {
-    this.cognitoService.signOut()
-      .then(() => {
-        this.router.navigate(['/signIn']);
-      });
   }
 
 }

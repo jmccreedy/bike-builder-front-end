@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
 import {Part, PartFormData} from "../parts/types";
 import {NavbarComponent} from "../navbar/navbar.component";
+import {AuthService} from "@auth0/auth0-angular";
+import {WebService} from "../web.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-build-result',
@@ -17,11 +20,9 @@ export class BuildResultComponent {
   tyres: Part | undefined
   handlebar: Part | undefined
   saddle: Part | undefined
-  configurationPrice: string | undefined
-  isAuthenticated: boolean | undefined;
-  user: any;
+  buildCost: string | undefined
 
-  constructor(private navbarComponent: NavbarComponent) {
+  constructor( public auth: AuthService, private webService: WebService, public route: Router) {
   }
 
   ngOnInit(): void {
@@ -38,11 +39,9 @@ export class BuildResultComponent {
       this.handlebar = parsedFormValue.handlebar
       this.saddle = parsedFormValue.saddle
 
-      this.configurationPrice = this.getConfigurationPrice(this.frame.part_price.S, this.wheelset.part_price.S, this.groupset.part_price.S, this.stem.part_price.S, this.seatpost.part_price.S, this.tyres.part_price.S, this.handlebar.part_price.S, this.saddle.part_price.S)
+      this.buildCost = this.getConfigurationPrice(this.frame.part_price.S, this.wheelset.part_price.S, this.groupset.part_price.S, this.stem.part_price.S, this.seatpost.part_price.S, this.tyres.part_price.S, this.handlebar.part_price.S, this.saddle.part_price.S)
     }
 
-    this.user = this.navbarComponent.user
-    this.isAuthenticated = this.navbarComponent.isAuthenticated
   }
 
   getConfigurationPrice(frame: string, wheelset: string, groupset: string, stem: string, seatpost: string, tyres: string, handlebar: string, saddle: string){
@@ -59,5 +58,15 @@ export class BuildResultComponent {
       console.log(totalCost)
     }
     return totalCost.toFixed(2).toString()
+  }
+
+  saveBuild(buildData: Part[], email: any, build_cost: any){
+    this.webService.saveBuild(buildData, email, build_cost)
+    this.route.navigate(['/', 'saved_builds'])
+      .then(nav => {
+        console.log(nav); // true if navigation is successful
+      }, err => {
+        console.log(err) // when there's an error
+      });
   }
 }

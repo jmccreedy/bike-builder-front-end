@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 })
 export class PartsComponent {
   localStorage = window.localStorage
+  searchValue: any;
   framesList: Part[] = [];
   wheelsetList: Part[] = [];
   groupsetList: Part[] = [];
@@ -77,7 +78,7 @@ export class PartsComponent {
   }
 
   onSubmit() {
-    this.localStorage.clear()
+    this.localStorage.removeItem('form-data')
     this.localStorage.setItem('form-data', JSON.stringify(this.partForm.value));
     console.log(JSON.stringify(this.partForm.value))
     this.partForm.reset()

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {CognitoService} from "../cognito.service";
+import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
   selector: 'app-navbar',
@@ -8,32 +8,32 @@ import {CognitoService} from "../cognito.service";
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent{
-  public isAuthenticated: boolean;
-  public user: any;
+export class NavbarComponent {
+  adminEmails = ['jmccreedy65@gmail.com']
+  userEmail: any
 
-  constructor( private router: Router,
-               private cognitoService: CognitoService) {
-    this.isAuthenticated = false;
-    this.user = {};
+  constructor(private route: Router, public auth: AuthService) {
 
   }
 
   ngOnInit(): void {
-    this.cognitoService.getUser().then((user: any)=> {
-      this.user = user
-    })
-
-    this.cognitoService.isAuthenticated().then((success: boolean) => {
-      this.isAuthenticated = success;
-    });
+    this.auth.user$.subscribe(user=>this.userEmail=user?.email)
   }
 
-  public signOut(): void {
-    this.cognitoService.signOut()
-      .then(() => {
-        this.router.navigate(['home']);
-      });
+  goHome() {
+    this.route.navigate(['/home'])
+  }
+  goToPartPicker() {
+    this.route.navigate(['/part_picker'])
+  }
+  goToAdminPartsList() {
+    this.route.navigate(['/admin_parts_list'])
+  }
+  goToSavedBuilds() {
+    this.route.navigate(['/saved_builds'])
+  }
+  isAdmin(currentUserEmail:string){
+    return this.adminEmails.find(adminEmail => adminEmail === currentUserEmail)
   }
 
 }
