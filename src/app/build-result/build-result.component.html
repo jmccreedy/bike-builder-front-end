@@ -1,12 +1,12 @@
 <ng-container *ngIf="frame && groupset && wheelset && stem && seatpost && tyres && handlebar && saddle">
-  <h1 class="lead" style="text-align: center; margin-bottom: 0.1em; margin-top: 50px; font-size: 5em">Your Build: Total Cost ${{buildCost}}</h1>
+  <h1 class="lead" style="text-align: center; margin-bottom: 0.1em; margin-top: 50px; font-size: 5em">Your Build: Total Cost £{{buildCost}}</h1>
   <div class="container" style="margin-top: 4em; margin-bottom: 3em">
     <div class="row">
       <div class="col-sm">
         <div class="card">
           <div class="card-header" style="text-align: center">Frame ({{frame.part_price.S}})</div>
           <div class="card-body">
-            <img style="display: block; margin: auto;" [src]=frame.part_img.S alt="frame"/>
+            <img style="display: block; margin: auto; width: 250px; height: 200px" [src]=frame.part_img.S alt="frame"/>
           </div>
           <div class="card-footer" style="text-align: center">Buy here: <a target="_blank" [href]="frame.part_url.S">{{frame.part_title.S}}</a></div>
         </div>
@@ -15,7 +15,7 @@
         <div class="card">
           <div class="card-header" style="text-align: center">Groupset ({{groupset.part_price.S}})</div>
           <div class="card-body">
-            <img style="display: block; margin: auto;" [src]=groupset.part_img.S  alt="groupset"/>
+            <img style="display: block; margin: auto; width: 250px; height: 200px" [src]=groupset.part_img.S  alt="groupset"/>
           </div>
           <div class="card-footer" style="text-align: center">Buy here: <a target="_blank" [href]="groupset.part_url.S">{{groupset.part_title.S}}</a></div>
         </div>
@@ -24,7 +24,7 @@
         <div class="card">
           <div class="card-header" style="text-align: center">Wheelset ({{wheelset.part_price.S}})</div>
           <div class="card-body">
-            <img style="display: block; margin: auto;" [src]=wheelset.part_img.S alt="wheelset"/>
+            <img style="display: block; margin: auto; width: 250px; height: 200px" [src]=wheelset.part_img.S alt="wheelset"/>
           </div>
           <div class="card-footer" style="text-align: center">Buy here: <a target="_blank" [href]="wheelset.part_url.S">{{wheelset.part_title.S}}</a></div>
         </div>
@@ -33,7 +33,7 @@
         <div class="card">
           <div class="card-header" style="text-align: center">Tyres ({{tyres.part_price.S}})</div>
           <div class="card-body">
-            <img style="display: block; margin: auto;" [src]=tyres.part_img.S alt="tyres"/>
+            <img style="display: block; margin: auto; width: 250px; height: 200px" [src]=tyres.part_img.S alt="tyres"/>
           </div>
           <div class="card-footer" style="text-align: center">Buy here: <a target="_blank" [href]="tyres.part_url.S">{{tyres.part_title.S}}</a></div>
         </div>
@@ -44,7 +44,7 @@
         <div class="card">
           <div class="card-header" style="text-align: center">Seatpost ({{seatpost.part_price.S}})</div>
           <div class="card-body">
-            <img style="display: block; margin: auto;" [src]=seatpost.part_img.S alt="seatpost"/>
+            <img style="display: block; margin: auto; width: 250px; height: 200px" [src]=seatpost.part_img.S alt="seatpost"/>
           </div>
           <div class="card-footer" style="text-align: center">Buy here: <a target="_blank" [href]="seatpost.part_url.S">{{seatpost.part_title.S}}</a></div>
         </div>
@@ -53,7 +53,7 @@
         <div class="card">
           <div class="card-header" style="text-align: center">Saddle ({{saddle.part_price.S}})</div>
           <div class="card-body">
-            <img style="display: block; margin: auto;" [src]=saddle.part_img.S alt="saddle"/>
+            <img style="display: block; margin: auto; width: 250px; height: 200px" [src]=saddle.part_img.S alt="saddle"/>
           </div>
           <div class="card-footer" style="text-align: center">Buy here: <a target="_blank" [href]="saddle.part_url.S">{{saddle.part_title.S}}</a></div>
         </div>
@@ -62,7 +62,7 @@
         <div class="card">
           <div class="card-header" style="text-align: center">Stem ({{stem.part_price.S}})</div>
           <div class="card-body">
-            <img style="display: block; margin: auto;" [src]=stem.part_img.S alt="stem"/>
+            <img style="display: block; margin: auto; width: 250px; height: 200px" [src]=stem.part_img.S alt="stem"/>
           </div>
           <div class="card-footer" style="text-align: center">Buy here: <a target="_blank" [href]="stem.part_url.S">{{stem.part_title.S}}</a></div>
         </div>
@@ -71,7 +71,7 @@
         <div class="card">
           <div class="card-header" style="text-align: center">Handlebar ({{handlebar.part_price.S}})</div>
           <div class="card-body">
-            <img style="display: block; margin: auto;" [src]=handlebar.part_img.S alt="bike"/>
+            <img style="display: block; margin: auto; width: 250px; height: 200px" [src]=handlebar.part_img.S alt="bike"/>
           </div>
           <div class="card-footer" style="text-align: center">Buy here: <a target="_blank" [href]="handlebar.part_url.S">{{handlebar.part_title.S}}</a></div>
         </div>

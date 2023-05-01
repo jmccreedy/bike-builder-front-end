@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Part, PartFormData} from "../parts/types";
-import {NavbarComponent} from "../navbar/navbar.component";
 import {AuthService} from "@auth0/auth0-angular";
 import {WebService} from "../web.service";
 import {Router} from "@angular/router";
@@ -44,18 +43,16 @@ export class BuildResultComponent {
 
   }
 
-  getConfigurationPrice(frame: string, wheelset: string, groupset: string, stem: string, seatpost: string, tyres: string, handlebar: string, saddle: string){
+  getConfigurationPrice(frame: string, wheelset: string,
+                        groupset: string, stem: string, seatpost: string, tyres: string, handlebar: string, saddle: string){
     let totalCost = 0;
     let pricesAsStrings = [frame, wheelset, groupset, stem, seatpost, tyres, handlebar, saddle]
-    console.log(pricesAsStrings)
     let pricesAsFloats = pricesAsStrings.map(price=>{
       let priceWithCommaRemoved = price.replace(",", "")
       return parseFloat(priceWithCommaRemoved.slice(1))
     })
-    console.log(pricesAsFloats)
     for(let i = 0; i < pricesAsFloats.length; i++){
       totalCost += Number(pricesAsFloats[i])
-      console.log(totalCost)
     }
     return totalCost.toFixed(2).toString()
   }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {WebService} from "../web.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-part',
@@ -11,7 +12,7 @@ export class AddPartComponent implements OnInit {
   partForm: any;
   numRegex = /^-?\d*[.,]?\d{0,2}$/;
 
-  constructor(private formBuilder: FormBuilder, public webService: WebService) {
+  constructor(private formBuilder: FormBuilder, public webService: WebService, private route: Router) {
   }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class AddPartComponent implements OnInit {
 
   onSubmit() {
     this.webService.addPart(this.partForm)
+    this.route.navigate(['admin_parts_list'])
   }
 
   isInvalid(control: any) {

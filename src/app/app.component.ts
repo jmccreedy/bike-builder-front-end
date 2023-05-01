@@ -1,26 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
-import {WebService} from "./web.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
 
-  isAuthenticated: boolean;
+export class AppComponent {
+  title: string = 'bike-builder-front-end';
 
-  constructor(public webService: WebService, private router: Router,
-              ) {
-    this.isAuthenticated = false;
+  constructor() {
   }
 
   public ngOnInit(): void {
-  }
-
-  public signOut(): void {
   }
 
 }
